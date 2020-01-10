@@ -42,7 +42,7 @@ class App extends React.Component {
   startTimer = () => {
     this.setState({
       timer: setInterval(this.step, 1000),
-      time: 12,
+      time: 1200,
       status: 'work'
     });
   };
