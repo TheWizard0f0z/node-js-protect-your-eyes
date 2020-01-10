@@ -44,8 +44,20 @@ class App extends React.Component {
     });
   };
 
+  stopTimer = () => {
+    clearInterval(this.state.timer);
+    this.setState({
+      time: 1200,
+      status: 'off'
+    });
+  };
+
+  closeApp() {
+    window.close();
+  }
+
   render() {
-    const { status, time, timer } = this.state;
+    const { status, time } = this.state;
 
     return (
       <div>
@@ -71,8 +83,14 @@ class App extends React.Component {
             Start
           </button>
         )}
-        {status !== 'off' && <button className='btn'>Stop</button>}
-        <button className='btn btn-close'>X</button>
+        {status !== 'off' && (
+          <button className='btn' onClick={this.stopTimer}>
+            Stop
+          </button>
+        )}
+        <button className='btn btn-close' onClick={this.closeApp}>
+          X
+        </button>
       </div>
     );
   }
